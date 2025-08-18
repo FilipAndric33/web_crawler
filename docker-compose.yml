@@ -1,0 +1,25 @@
+services:
+  reverse-proxy:
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - proxy
+
+  backend:
+    build: ./backend
+    networks:
+      - proxy
+
+  frontend:
+    build: ./frontend
+    networks:
+      - proxy
+    environment:
+      VITE_API_URL: http://backend:8080/api/
+    depends_on:
+      - backend
+
+networks:
+  proxy:
+    driver: bridge

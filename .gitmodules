@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/FilipAndric33/web_crawler_ui
+[submodule "backend"]
+	path = backend
+	url = https://github.com/FilipAndric33/web_crawler_api
